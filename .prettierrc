@@ -1,0 +1,33 @@
+{
+	"useTabs": true,
+	"quoteProps": "preserve",
+	"singleQuote": true,
+	"trailingComma": "all",
+	"htmlWhitespaceSensitivity": "ignore",
+	"overrides": [
+		{
+			"files": "*.html",
+			"options": {
+				"parser": "angular"
+			}
+		},
+		{
+			"files": ["*.json", "*.json5", "*.jsonc", ".eslintrc"],
+			"options": {
+				"trailingComma": "none"
+			}
+		},
+		{
+			"files": ["package-lock.json"],
+			"options": {
+				"requirePragma": true
+			}
+		},
+		{
+			"files": ["pnpm-lock.yaml"],
+			"options": {
+				"requirePragma": true
+			}
+		}
+	]
+}

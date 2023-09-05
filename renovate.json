@@ -1,0 +1,62 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>whitesource/merge-confidence:beta",
+    ":semanticCommits",
+    "config:base",
+    "group:recommended",
+    "group:monorepos"
+  ],
+  "labels": [
+    "renovate"
+  ],
+  "major": { "dependencyDashboardApproval": true },
+  "platformAutomerge": true,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "automergeType": "pr",
+    "platformAutomerge": true
+  },
+  "dependencyDashboardTitle": "🍳 Renovate Dependency Dashboard",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["digest"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    },
+    {
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    }
+  ],
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 0,
+  "rangeStrategy": "auto",
+  "reviewersFromCodeOwners": true,
+  "dependencyDashboard": true,
+  "description": [
+    "Use Ray's Best Practice configuration from [so1ve/renovate-config](https://github.com/so1ve/renovate-config)",
+    "Create a Dependency Dashboard as Issue, listing all upgrades",
+    "Open new PRs automatically. You can manually trigger PRs from the Dependency Dashboard, those will be opened once renovate runs again (once every hour)",
+    "Label all PRs with `renovate`",
+    "Use semantic commit messages for all upgrades",
+    "Open a maximum of 10 PRs concurrently",
+    "Automatically set reviewers from CODEOWNERS"
+  ],
+	"timezone": "Asia/Singapore",
+	"schedule": [
+		"after 11pm every weekday", "before 5am every weekday", "every weekend"
+	]
+}
